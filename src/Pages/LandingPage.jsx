@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
     return (
@@ -30,8 +31,8 @@ const LandingPage = () => {
                     <div className='text-white pop text-2xl '>Connect, share and discover. Your social universe awaits.</div>
                 </div>
                 <div className='flex gap-10 mt-10'>
-                    <button className='h-20 w-35 p-5 text-indigo-500 pop text-3xl font-medium shadow-2xl bg-white rounded-4xl transform hover:scale-105 transition-transform duration-300 focus:ring-4 focus:ring-white/50 focus:outline-none'>Login</button>
-                    <button className='h-20 w-39 p-5 text-white pop text-3xl font-medium bg-indigo-500/50 rounded-4xl transform hover:scale-105 transition-transform duration-300 focus:ring-4 focus:ring-indigo-400/50 fous:outline-none'>Sign Up</button>
+                    <button className='h-20 w-35 p-5 text-indigo-500 pop text-3xl font-medium shadow-2xl bg-white rounded-4xl transform hover:scale-105 transition-transform duration-300 focus:ring-4 focus:ring-white/50 focus:outline-none'><Link to="/login">Login</Link></button>
+                    <button className='h-20 w-39 p-5 text-white pop text-3xl font-medium bg-indigo-500/50 rounded-4xl transform hover:scale-105 transition-transform duration-300 focus:ring-4 focus:ring-indigo-400/50 fous:outline-none'><Link to="/signup">Sign Up</Link></button>
                 </div>
             </div>
         </>

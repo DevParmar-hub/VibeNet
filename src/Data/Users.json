@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Alex Braven",
+        "username": "Alex_Braven03",
+        "avatar": "/Assets/Pfp_1.jpg",
+        "bio": "Let the waves lead the way",
+        "followers":"346",
+        "following":"103",
+        "posts":4
+    },
+    {
+        "id": 2,
+        "name": "Robert Baratheon",
+        "username": "TheGoldenStag",
+        "avatar": "/Assets/Pfp_2.jpg",
+        "bio": "I am still alive hahaha",
+        "followers":"346",
+        "following":"103",
+        "posts":4
+    },
+       {
+        "id": 3,
+        "name": "Dexter Morgan",
+        "username": "Bay_Harbour_Butch",
+        "avatar": "/Assets/Pfp_3.jpg",
+        "bio": "Tonight is the Night",
+        "followers":"346",
+        "following":"103",
+        "posts":4
+    },
+       {
+        "id": 4,
+        "name": "Jash Nik",
+        "username": "JashuNik9",
+        "avatar": "/Assets/Pfp_4.jpg",
+        "bio": "Alhamdulillah",
+        "followers":"346",
+        "following":"103",
+        "posts":4
+    }
+]

@@ -4,8 +4,13 @@ import Post1 from '../assets/Post1.jpg'
 import Like from './Like'
 import Comment from './Comment'
 import Share from './Share'
+import Users from '../Data/Users.json'
+import Posts from '../Data/Posts.json'
+import Enlarge from '../assets/Enlarge'
 
-const Post = () => {
+
+
+const Post = ({post,user}) => {
   return (
 
     <>
@@ -17,26 +22,29 @@ const Post = () => {
     }
     `}
       </style>
-      <div className='flex justify-center '>
-        <div className='w-[48vw] bg-white mb-8 rounded-3xl pb-5 hover:bg-indigo-100 shadow-2xl transform hover:scale-105  duration-300'>
+          <div className='flex justify-center '>
+        <div className='w-[48vw] relative bg-white mb-8 rounded-3xl pb-5 hover:bg-indigo-100 shadow-2xl transform hover:scale-105  duration-300'>
           <div className='flex mt-5  pl-[2vw] pr-[2vw]'>
             <img src={Pfp_1} alt="" className='h-12 w-12 rounded-full object-cover ' />
             <div className='flex flex-col ml-3'>
-            <div className='pop text-xl font-semibold'>Alex Braven</div>
-            <div className='pop'>Hi just wanted to share that I have finally got my dream car .Keep working hard guys DREAMS DO COME TRUE!!</div>
+            <div className='pop text-xl font-semibold'>{user.name}</div>
+            <div className='pop'>{post.caption}</div>
+            <button className='absolute right-5 cursor-pointer transform hover:scale-105 duration-300'>
+            <Enlarge/>
+            </button>
             </div>
           </div>
           <div className='flex flex-col items-center mt-5 mb-5'>
-            <img src={Post1} alt="" className='w-[44vw] rounded-4xl'/>
+            <img src={post.image} alt="" className='w-[44vw] rounded-4xl'/>
           </div>
           <div className='flex justify-between w-[40vw] m-auto'>
             <div className='flex '>
             <button className='cursor-pointer'><Like/></button>
-            <div className='ml-1 text-base mt-[1px] font-semibold'>104</div>
+            <div className='ml-1 text-base mt-[1px] font-semibold'>{post.likes}</div>
             </div>
             <div className='flex'>
             <button className='cursor-pointer'><Comment/></button>
-            <div className='ml-1 text-base mb-[5px] font-semibold'>23</div>
+            <div className='ml-1 text-base mb-[5px] font-semibold'>{post.comments.length}</div>
             </div>
             <button><Share/></button>
           </div>

@@ -10,8 +10,12 @@ import Like from '../Components/Like'
 import Share from '../Components/Share'
 import Bookmark from '../assets/Bookmark'
 import Send from '../assets/Send'
+import { useParams } from 'react-router-dom';
+import Posts from "../Data/Posts.json"
 
 const PostPage = () => {
+    const { id } = useParams();
+    const post = Posts.find(p => p.id === parseInt(id));
     return (
         <>
             <style>{`
@@ -23,7 +27,6 @@ const PostPage = () => {
     `}
             </style>
             <div className='flex'>
-                <Navbar />
                 <div className='flex justify-center items-center w-screen h-screen ml-20'>
                     <div className='w-[64vw] h-[70vh] bg-amber-300 rounded-2xl flex'>
                         <div>
@@ -33,7 +36,7 @@ const PostPage = () => {
                                     <div className='pop text-xl font-semibold text-white ml-2 pop'>Alex Braven&nbsp;&middot;&nbsp;<span>2h</span></div>
                                 </div>
                             </div>
-                            <img src={Post1} alt="" className='h-[61vh] w-[40vw] object-cover rounded-bl-2xl' />
+                            <img src={post.image} alt="" className='h-[61vh] w-[40vw] object-cover rounded-bl-2xl' />
                             <div className='bg-indigo-100 w-[8vw] m-auto flex gap-2 justify-center pt-2 pb-3 rounded-b-2xl '>
                                 <Like />
                                 <Share />
@@ -46,14 +49,14 @@ const PostPage = () => {
                                     <img src={Pfp_1} alt="" className='rounded-full w-7 h-7 mt-4 ml-2 object-cover' />
                                     <div className='pop text-normal font-semibold text-black ml-2 mt-3 pop'>Alex Braven&nbsp;&middot;&nbsp;<span>2d ago</span></div>
                                 </div>
-                                <div className='ml-6 pr-2'>Hi just wanted to share that I have finally got my dream car .Keep working hard guys DREAMS DO COME TRUE!!</div>
+                                <div className='ml-6 pr-2'>{post.caption}</div>
                                 <div className='flex items-center justify-end mr-5 gap-1'>
                                     <div className='flex'>
                                         <span className='text-[13px] font-medium mt-[1px]'>24</span>
                                         <Reply />
                                     </div>
                                     <div className='flex'>
-                                        <span className='text-[13px] font-medium mb-[2px] mr-[2px]'>112</span>
+                                        <span className='text-[13px] font-medium mb-[2px] mr-[2px]'>{post.likes}</span>
                                         <div className='mt-[1.5px]'>
                                             <Like2 />
                                         </div>
@@ -61,46 +64,29 @@ const PostPage = () => {
                                 </div>
                             </div>
 
-                            <div>
-                                <div className='flex items-center'>
-                                    <img src={DummyUser} alt="" className='rounded-full w-7 h-7 mt-4 ml-2' />
-                                    <div className='pop text-normal font-semibold text-black ml-2 mt-3 pop'>Robert B&nbsp;&middot;&nbsp;<span>1d ago</span></div>
-                                </div>
-                                <div className='ml-6 pr-2'>Amazing car , I can tell with experience . Courtesy of Kings Landing hahah</div>
-                                <div className='flex items-center justify-end mr-5 gap-1'>
-                                    <div className='flex'>
-                                        <span className='text-[13px] font-medium mt-[1px]'>112</span>
-                                        <Reply />
+                            {post.comments.map((comment,index) => (
+                                <div key={index}>
+
+                                    <div className='flex items-center'>
+                                        <img src={DummyUser} alt="" className='rounded-full w-7 h-7 mt-4 ml-2' />
+                                        <div className='pop text-normal font-semibold text-black ml-2 mt-3 pop'>{comment.user}&nbsp;&middot;&nbsp;<span>1d ago</span></div>
                                     </div>
-                                    <div className='flex'>
-                                        <span className='text-[13px] font-medium mb-[2px] mr-[2px]'>2,453</span>
-                                        <div className='mt-[1.5px]'>
-                                            <Like2 />
+                                    <div className='ml-6 pr-2'>{comment.text}</div>
+                                    <div className='flex items-center justify-end mr-5 gap-1'>
+                                        <div className='flex'>
+                                            <span className='text-[13px] font-medium mt-[1px]'>112</span>
+                                            <Reply />
+                                        </div>
+                                        <div className='flex'>
+                                            <span className='text-[13px] font-medium mb-[2px] mr-[2px]'>{comment.likes}</span>
+                                            <div className='mt-[1.5px]'>
+                                                <Like2 />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-
-                            <div>
-                                <div className='flex items-center'>
-                                    <img src={DummyUser} alt="" className='rounded-full w-7 h-7 mt-4 ml-2' />
-                                    <div className='pop text-normal font-semibold text-black ml-2 mt-3 pop'>Dexter Morgan&nbsp;&middot;&nbsp;<span>4h ago</span></div>
-                                </div>
-                                <div className='ml-6 pr-2'>Much respect old friend</div>
-                                <div className='flex items-center justify-end mr-5 gap-1'>
-                                    <div className='flex'>
-                                        <span className='text-[13px] font-medium mt-[1px]'>3</span>
-                                        <Reply />
-                                    </div>
-                                    <div className='flex'>
-                                        <span className='text-[13px] font-medium mb-[2px] mr-[2px]'>450</span>
-                                        <div className='mt-[1.5px]'>
-                                            <Like2 />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
+                            
                             <div className='flex absolute bottom-5 left-8'>
                                 <textarea name="" id="" placeholder='Enter your comment' className='bg-gray-300 placeholder:pop w-[18vw] rounded-2xl pl-2'></textarea>
                                 <button className=''><Send /></button>

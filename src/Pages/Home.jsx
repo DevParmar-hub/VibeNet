@@ -3,6 +3,9 @@ import Navbar from '../Components/Navbar.jsx'
 import Post from '../Components/Post.jsx'
 import DevLogo from '../assets/DevLogo.jpeg'
 import DummyUser from '../assets/DummyUser.png'
+import Users from '../Data/Users.json'
+import Posts from '../Data/Posts.json'
+
 
 const Home = () => {
   return (
@@ -13,27 +16,31 @@ const Home = () => {
     .pop{
     font-family:"Poppins";
     }
+    *{
+    bg-gray
+    }
     `}
       </style>
-      <div className='flex'>
-        <Navbar />
-        <div className='pl-30 flex gap-[2.5vw] bg-gray-100'>
-          <div className=' w-[54vw] '>
-            <div className='pop text-5xl font-bold mb-5'> Home Stream</div>
-            <Post />
-            <Post />
+      <div className='flex  w-full overflow-x-hidden b'>
+        <div className='flex gap-[2.5vw]  w-full mr-4'>
+          <div className=' w-[54vw] ml-7'>
+            <div className='pop text-5xl font-bold mb-5 p-4'> Home Stream</div>
+            {Posts.map((post) => {
+              const user = Users.find((u) => u.id === post.user_id);
+              return <Post post={post} user={user} />;
+            })}
           </div>
-          <div className='bg-indigo-100 w-[30vw] h-[110vh] sticky top-0'>
-            <div className='pop text-5xl font-bold mb-5'>The Flow</div>
+          <div className='bg-indigo-100 w-[30vw] h-[122vh] sticky top-0'>
+            <div className='pop text-5xl font-bold mb-5 p-5'>The Flow</div>
             <div className='w-[25vw] bg-indigo-700 m-auto rounded-2xl hover:bg-indigo-600 transform hover:scale-105 duration-300 shadow-2xl'>
-              <div className='text-3xl font-semibold pop text-white pt-2 pl-4'>
+              <div className='text-3xl font-semibold pop text-white pl-5 pt-3'>
                 Vibe of the day
               </div>
               <div className='flex mt-5  pl-[2vw] pr-[2vw] pb-4'>
                 <img src={DevLogo} alt="" className='h-12 w-12 rounded-full object-cover ' />
                 <div className='flex flex-col ml-3'>
                   <div className='flex'>
-                    <div className='pop text-xl font-semibold text-white'>Alexis Munroe</div>
+                    <div className='pop text-xl font-semibold text-white'>Dev Parmar</div>
                     <div className='text-base text-gray-300 ml-1'><sub> VibeNet Admin</sub></div>
                   </div>
 
@@ -44,18 +51,18 @@ const Home = () => {
             </div>
             <div className='flex flex-col w-[25vw] m-auto '>
               <div className='mt-6 bg-white  pt-2  rounded-2xl transform hover:scale-105 duration-300 shadow-2xl'>
-                <div className='text-3xl font-semibold pop text-indigo-700 text-center'>Vibes you might like</div>
-                <div className='hover:bg-indigo-100'>
-                  <div className='text-base pop hover:font-medium ml-3'>Ai and its rise.Is web design over?</div>
+                <div className='text-3xl font-semibold pop text-indigo-700 text-center mb-3 pt-2'>Vibes you might like</div>
+                <div className='hover:bg-indigo-100 pl-3 pb-3'>
+                  <div className='text-base  font-semibold pop hover:font-medium ml-3'>AI and its rise. Is web design over?</div>
                   <div className='flex ml-4 mb-2'>
                     <img src={DummyUser} alt="" className='h-6 w-6 rounded-full' />
                     <div className='text-gray-500 text-base ml-2'>
-                      3 hours ago .&nbsp; Tech&nbsp;.&nbsp;344 posts
+                      3 hours ago .&nbsp;Tech .&nbsp;344 posts
                     </div>
                   </div>
                 </div>
-                <div className='hover:bg-indigo-100'>
-                  <div className='text-base pop hover:font-medium ml-3'>Ferrari is out with a digital hypercar!!</div>
+                <div className='hover:bg-indigo-100 pl-3 pb-3'>
+                  <div className='text-base pop font-semibold hover:font-medium ml-3'>Ferrari is out with a digital hypercar!!</div>
                   <div className='flex ml-4 mb-2'>
                     <img src={DummyUser} alt="" className='h-6 w-6 rounded-full' />
                     <div className='text-gray-500 text-base ml-2'>
@@ -63,8 +70,8 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                <div className='hover:bg-indigo-100'>
-                  <div className='text-base pop hover:font-medium ml-3'>Lando Norris at the top of the table after 15 rounds</div>
+                <div className='hover:bg-indigo-100 pl-3 pb-3'>
+                  <div className='text-base pop font-semibold hover:font-medium ml-3'>Lando Norris at the top of the table after 15 rounds</div>
                   <div className='flex ml-4 mb-2'>
                     <img src={DummyUser} alt="" className='h-6 w-6 rounded-full' />
                     <div className='text-gray-500 text-base ml-2'>

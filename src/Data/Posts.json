@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "image": "/Assets/Post1.jpg",
+        "caption": "Hi just wanted to share that I have finally got my dream car .Keep working hard guys DREAMS DO COME TRUE!!",
+        "time":"10d ago",
+        "likes": 230,
+        "comments": [
+            {
+                "user": "TheGoldenStag",
+                "text": "Amazing car , I can tell with experience . Courtesy of Kings Landing hahah",
+                "icon":"/Assets/Pfp_2.jpg",
+                "time":"2d ago"
+
+            },
+            {
+                "user": "Bay_Harbour_Butch",
+                "text": "Much respect old friend",
+                "icon":"/Assets/Pfp_3.jpg",
+                "time":"1hr ago"
+            }
+        ]
+    },
+     {
+        "id": 2,
+        "user_id": 1,
+        "image": "/Assets/Post2.jpg",
+        "caption": "Best city ever",
+        "time":"10d ago",
+        "likes": 104,
+        "comments": [
+            {
+                "user": "TheGoldenStag",
+                "text": "Kings landing is better hahah",
+                "icon":"/Assets/Pfp_2.jpg",
+                "time":"5hr ago",
+                "likes":"233"
+
+            },
+            {
+                "user": "Bay_Harbour_Butch",
+                "text": "Sure",
+                "icon":"/Assets/Pfp_3.jpg",
+                "time":"1d ago",
+                "likes":"233"
+
+
+            }
+        ]
+    },
+     {
+        "id": 3,
+        "user_id": 1,
+        "image": "/Assets/Post3.jpg",
+        "caption": "Drawing came alive ",
+        "time":"10d ago",
+        "likes": 134,
+        "comments": [
+            {
+                "user": "TheGoldenStag",
+                "text": "Absurd block of decorated cement",
+                "icon":"/Assets/Pfp_2.jpg",
+                "time":"7hr ago",
+                "likes":"233"
+
+
+            },
+            {
+                "user": "Bay_Harbour_Butch",
+                "text": "Seems really cool",
+                "icon":"/Assets/Pfp_3.jpg",
+                "time":"3d ago",
+                "likes":"233"
+
+
+            }
+        ]
+    },
+     {
+        "id": 4,
+        "user_id": 1,
+        "image": "/Assets/Post4.jpg",
+        "caption": "Must watch ",
+        "time":"10d ago",
+        "likes": 189,
+        "comments": [
+            {
+                "user": "TheGoldenStag",
+                "text": "Try ruling a kingdom for once ",
+                "icon":"/Assets/Pfp_2.jpg",
+                "likes":"233"
+
+            },
+            {
+                "user": "Bay_Harbour_Butch",
+                "text": "Indeed",
+                "icon":"/Assets/Pfp_3.jpg",
+                "likes":"233"
+
+            }
+        ]
+    }
+]
