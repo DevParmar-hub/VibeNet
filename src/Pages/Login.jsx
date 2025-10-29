@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     const [password, setpassword] = useState("")
@@ -27,7 +28,6 @@ const Login = () => {
         if (flag == 1)
             alert("Please fill all of the Fiels");
         else {
-            alert("Response submitted successfully");
             setemail("");
             setpassword("");
             navigate("/web/home")
@@ -74,7 +74,7 @@ const Login = () => {
                             </div>)
                         }
                         <button className='h-15 w-80  mt-10 text-indigo-500 pop text-2xl font-medium shadow-2xl bg-white rounded-4xl transform hover:scale-105 transition-transform duration-300 focus:ring-4 focus:ring-white/50 focus:outline-none' onClick={checkAll}>Login</button>
-                        <div className='mt-5 text-xl text-indigo-200/70 pop '>Don't have an account? Signup</div>
+                         <div className='mt-5 text-xl text-indigo-200/70 pop flex'>Don't have an account?<div className='transform hover:scale-105 duration-300 ml-1 hover:text-white'><Link to="/signup" className='underline '>Signup</Link></div> </div>
                     </div>
                 </div>
             </div>

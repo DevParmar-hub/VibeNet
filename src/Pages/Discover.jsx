@@ -17,7 +17,7 @@ const Discover = () => {
             </style>
             <div className='flex'>
                 <div >
-                    <div className='ml-10 pop text-5xl font-bold'>Discover people</div>
+                    <div className='ml-10 pop text-5xl font-bold mt-5'>Discover people</div>
                     <div className='grid grid-cols-3 ml-40 pb-15'>
                         {Users.slice(1).map((user) => (
                             <div className='transform hover:scale-105 duration-300'>

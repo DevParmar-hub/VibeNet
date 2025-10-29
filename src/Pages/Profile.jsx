@@ -19,9 +19,9 @@ import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const [hoveredPost, setHoveredPost] = useState(null);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handlePostClick = (id) => {
+  const handlePostClick = (id) => {
     navigate(`/web/post/${id}`);
   };
   return (
@@ -80,11 +80,11 @@ const Profile = () => {
             <div className='flex flex-col items-center mt-10  '>
               <div className='flex items-center gap-3'>
                 <button className='cursor-pointer'>
-                <Grid_Logo />
+                  <Grid_Logo />
                 </button>
                 <div className='mb-[5px] border-l-gray-300 border-l-3 pl-2'>
                   <button className='cursor-pointer mt-2'>
-                  <Chat_Logo />
+                    <Chat_Logo />
                   </button>
                 </div>
               </div>
@@ -94,35 +94,29 @@ const Profile = () => {
                     key={post.id}
                     className="relative w-[300px] h-[300px] overflow-hidden  transform hover:scale-102 duration-300 hover:shadow-2xl hover:shadow-indigo-700"
                     onMouseEnter={() => setHoveredPost(post.id)}
-                    onMouseLeave={() => setHoveredPost(null)}
-                  >
-
+                    onMouseLeave={() => setHoveredPost(null)}>
+                      
                     <img src={post.image} alt="" className={`w-[300px] h-[300px] object-cover 
                      ${hoveredPost === post.id ? 'scale-105' : ''
                       }`} />
-                       {hoveredPost === post.id && (
-    <div className="absolute inset-0 flex items-center justify-center bg-black/25 transition-opacity duration-300">
-      <button className="p-3 bg-indigo-600 rounded-full shadow-lg hover:scale-110 transform duration-200" onClick={()=>handlePostClick(post.id)}>
-      <Eye/>
-      </button>
-    </div>
-  )}
-
-
+                    {hoveredPost === post.id && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/25 transition-opacity duration-300">
+                        <button className="p-3 bg-indigo-600 rounded-full shadow-lg hover:scale-110 transform duration-200" onClick={() => handlePostClick(post.id)}>
+                          <Eye />
+                        </button>
+                      </div>
+                    )}
                   </div>
                 ))}
-
               </div>
               <div>
               </div>
-
             </div>
-            </div>
-            </div>
+          </div>
+        </div>
       ))}
-
-          </>
-          )
+    </>
+  )
 }
 
-          export default Profile
+export default Profile

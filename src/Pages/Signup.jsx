@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 
 
 const Signup = () => {
@@ -23,7 +25,6 @@ const Signup = () => {
     if (flag == 1)
       alert("Please fill all of the Fiels");
     else {
-      alert("Response submitted successfully");
       setemail("");
       setpassword("");
       setusername("");
@@ -89,7 +90,7 @@ const Signup = () => {
               </div>)
             }
             <button className='h-15 w-80  mt-10 text-indigo-500 pop text-2xl font-medium shadow-2xl bg-white rounded-4xl transform hover:scale-105 transition-transform duration-300 focus:ring-4 focus:ring-white/50 focus:outline-none' onClick={checkAll}>Signup</button>
-            <div className='mt-5 text-xl text-indigo-200/70 pop '>Already have an account? Login</div>
+            <div className='mt-5 text-xl text-indigo-200/70 pop flex'>Already have an account?<div className='transform hover:scale-105 duration-300 ml-1 hover:text-white'><Link to="/login" className='underline '>Login</Link></div> </div>
           </div>
         </div>
       </div>

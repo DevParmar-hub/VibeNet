@@ -10,11 +10,13 @@ import Like from '../Components/Like'
 import Share from '../Components/Share'
 import Bookmark from '../assets/Bookmark'
 import Send from '../assets/Send'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Posts from "../Data/Posts.json"
+import Back from '../assets/Back'
 
 const PostPage = () => {
     const { id } = useParams();
+    const navigate=useNavigate();
     const post = Posts.find(p => p.id === parseInt(id));
     return (
         <>
@@ -27,6 +29,7 @@ const PostPage = () => {
     `}
             </style>
             <div className='flex'>
+                <button className='absolute top-4 left-27 transform hover:scale-110 duration-300 hover:shadow-xl hover:bg-indigo-100 rounded-full' onClick={()=>{navigate("/web/profile")}}><Back/></button>
                 <div className='flex justify-center items-center w-screen h-screen ml-20'>
                     <div className='w-[64vw] h-[70vh] bg-amber-300 rounded-2xl flex'>
                         <div>

@@ -21,8 +21,8 @@ const Home = () => {
     }
     `}
       </style>
-      <div className='flex  w-full overflow-x-hidden b'>
-        <div className='flex gap-[2.5vw]  w-full mr-4'>
+      <div className='flex  w-full overflow-x-hidden '>
+        <div className='flex gap-[2.5vw]  w-full mr-4 relative'>
           <div className=' w-[54vw] ml-7'>
             <div className='pop text-5xl font-bold mb-5 p-4'> Home Stream</div>
             {Posts.map((post) => {
@@ -30,7 +30,7 @@ const Home = () => {
               return <Post post={post} user={user} />;
             })}
           </div>
-          <div className='bg-indigo-100 w-[30vw] h-[122vh] sticky top-0'>
+          <div className='bg-indigo-100 w-[30vw] h-[122vh] sticky bottom-0'>
             <div className='pop text-5xl font-bold mb-5 p-5'>The Flow</div>
             <div className='w-[25vw] bg-indigo-700 m-auto rounded-2xl hover:bg-indigo-600 transform hover:scale-105 duration-300 shadow-2xl'>
               <div className='text-3xl font-semibold pop text-white pl-5 pt-3'>

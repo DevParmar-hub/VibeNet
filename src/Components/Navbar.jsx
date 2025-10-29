@@ -29,7 +29,7 @@ const Navbar = ({ NavStatus, setNavStatus }) => {
                         {NavStatus && (<span className='text-xl text-white font-semibold  ml-1'>Messages</span>)}
                     </button>
                     <button className=' cursor-pointer flex items-center mt-5'>
-                      <Link to="/web/create"><Create_Logo /></Link>
+                        <Link to="/web/create"><Create_Logo /></Link>
                         {NavStatus && (<span className='text-xl text-white font-semibold  ml-1'>New</span>)}
                     </button>
                     <button className=' cursor-pointer flex items-center mt-5'>
@@ -49,5 +49,4 @@ const Navbar = ({ NavStatus, setNavStatus }) => {
         </>
     )
 }
-
 export default Navbar
