@@ -41,6 +41,25 @@ Services
  • Cloudinary (image uploads)
  • MongoDB Atlas
 
+ Future Improvements
+
+• Real-time notifications for likes, comments, and follows
+• Real-time chat and messaging between users
+• Improved feed algorithm (prioritize followed users and recent activity)
+• Post search and user discovery
+• Comment replies and threaded discussions
+• Better profile customization (bio, links, profile themes)
+• Post editing and deletion
+• Save / bookmark posts
+• Media improvements (multiple images per post, video uploads)
+• Image compression and lazy loading for performance
+• Enhanced security (refresh tokens, rate limiting)
+• Better error handling and validation (frontend + backend)
+• Mobile-first responsive design
+• Dark mode support
+• Admin controls and content moderation
+• Reporting system for posts and users
+
  # Note
 For obvious security reasons, this repository does not contain real credentials.
 • I’ve added placeholders where:
