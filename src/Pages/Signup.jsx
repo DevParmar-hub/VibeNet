@@ -11,7 +11,7 @@ const Signup = () => {
   const [email, setemail] = useState("")
   const navigate = useNavigate();
 
-  const checkAll = () => {
+  const checkAll = async () => {
     let flag = 0;
     if (username === "" || !validate("username", username)) {
       flag = 1;
@@ -25,9 +25,35 @@ const Signup = () => {
     if (flag == 1)
       alert("Please fill all of the Fiels");
     else {
-      setemail("");
-      setpassword("");
-      setusername("");
+      try {
+        const res = await fetch("http://localhost:5000/api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            username,
+            email,
+            password
+          })
+        })
+        const data = await res.json()
+        if (!res.ok) {
+          alert("Signup Failed")
+          return;
+        }
+        alert("Account created")
+
+        setusername("");
+        setemail("");
+        setpassword("");
+
+        navigate("/home");
+      }
+      catch (err) {
+        alert("Something went wrong");
+        console.log(err);
+      }
     }
   };
 

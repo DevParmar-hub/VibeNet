@@ -17,7 +17,7 @@ const Login = () => {
         return patterns[regex].test(input);
     }
 
-    const checkAll = () => {
+    const checkAll = async () => {
         let flag = 0
         if (email === "" || !validate("email", email)) {
             flag = 1;
@@ -28,9 +28,27 @@ const Login = () => {
         if (flag == 1)
             alert("Please fill all of the Fiels");
         else {
-            setemail("");
-            setpassword("");
-            navigate("/web/home")
+            try {
+                const res = await fetch("http://localhost:5000/api/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password })
+                })
+                const data = await res.json()
+                if (!res.ok) {
+                    alert(data.error || "Login failed");
+                    return;
+                }
+                localStorage.setItem("token", data.token)
+                localStorage.setItem("user",JSON.stringify(data.user))
+                setemail("")
+                setpassword("")
+                navigate("/web/home")
+            }
+            catch (err) {
+                alert("Something went wrong")
+                console.log(err)
+            }
         }
     };
     return (
@@ -54,7 +72,7 @@ const Login = () => {
     `}
             </style>
             <div className='w-[100vw] h-[100vh] bg-slate-900 flex justify-center items-center animation'>
-                <div className=' w-[35vw] pt-15 pb-15 rounded-3xl shadow-2xl fade-in flex flex-col justify-center relative'>
+                <div className=' w-[35vw] pt-15 pb-15 rounded-3xl shadow-2xl fade-in  flex flex-col justify-center relative'>
                     <button className='pop w-25 h-10 text-xl text-white absolute top-5 ml-5 rounded-4xl bg-transparent transform hover:scale-110 transition-transform duration-300 focus:ring-4 focus:ring-indigo-400/50 fous:outline-none' onClick={() => navigate("/")}>&larr;Back</button>
                     <div className='pop font-semibold text-white text-5xl  text-center'>Login</div>
                     <div className='flex flex-col items-center'>
@@ -74,7 +92,7 @@ const Login = () => {
                             </div>)
                         }
                         <button className='h-15 w-80  mt-10 text-indigo-500 pop text-2xl font-medium shadow-2xl bg-white rounded-4xl transform hover:scale-105 transition-transform duration-300 focus:ring-4 focus:ring-white/50 focus:outline-none' onClick={checkAll}>Login</button>
-                         <div className='mt-5 text-xl text-indigo-200/70 pop flex'>Don't have an account?<div className='transform hover:scale-105 duration-300 ml-1 hover:text-white'><Link to="/signup" className='underline '>Signup</Link></div> </div>
+                        <div className='mt-5 text-xl text-indigo-200/70 pop flex'>Don't have an account?<div className='transform hover:scale-105 duration-300 ml-1 hover:text-white'><Link to="/signup" className='underline '>Signup</Link></div> </div>
                     </div>
                 </div>
             </div>

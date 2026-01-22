@@ -12,9 +12,9 @@ const Layout = ({ children }) => {
             <div className="flex transition-all duration-300 ease-in-out">
                 <Navbar NavStatus={NavStatus} setNavStatus={setNavStatus} />
                 <div
-                    className={`transition-all duration-300 ease-in-out min-h-screen ${NavStatus ? 'ml-[12rem] w-[calc(100%-13rem)] mr-[1rem]' : 'ml-[5rem] w-[calc(100%-6rem)] mr-[1rem]'}`}
+                    className={`transition-all duration-300 ease-in-out h-screen overflow-x-hidden ${NavStatus ? 'ml-[12rem] w-[calc(100%-13rem)] mr-[1rem]' : 'ml-[5rem] w-[calc(100%-6rem)] mr-[1rem]'}`}
                 >
-                    <div className="pr-4"><Outlet/></div>
+                    <div className="pr-4  overflow-y-auto h-full"><Outlet/></div>
                 </div>
             </div>
         </>)
